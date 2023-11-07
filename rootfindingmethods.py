@@ -212,8 +212,8 @@ if __name__ == '__main__':
 
 
     #a simple quadratic function
-    quad = lambda x,y: x**2 - 16 
-    quad_prime = lambda x,y: 2*x
+    quad = lambda x: x**2 - 16 
+    quad_prime = lambda x: 2*x
     quad_name = "x^2 - 16"
     quad_is_multi = False
     quad_tuple = (quad, quad_prime, quad_name, x_0 , quad_is_multi)
@@ -224,11 +224,12 @@ if __name__ == '__main__':
     quad_multi_prime = lambda x,y: [2*x, 1]
     quad_multi_name = "x^2 - 16 + y"
     quad_multi_is_multi = True
-    quad_tuple = (quad_multi, quad_multi_prime, quad_multi_name, np.array([x_0, x_0]), quad_multi_is_multi)
+    quad_multi_tuple = (quad_multi, quad_multi_prime, quad_multi_name, np.array([x_0, x_0]), quad_multi_is_multi)
 
     #add all functions to the list
     funcList.append(contraction_tuple)
     funcList.append(quad_tuple)
+    funcList.append(quad_multi_tuple)
     
 
     for f, f_prime, f_name, initGuess, isMulti in funcList:
