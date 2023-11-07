@@ -5,6 +5,12 @@ import time
 
 
 # Bisection method for functions f: R -> R
+# params: 
+# f: function
+# a: initial guess 1
+# b: initial guess 2
+# N: max iterations
+# precision: precision of solution
 def bisectionUniVariable(f, a, b, N, precision):
     f_a = f(a)
     f_b = f(b)
@@ -14,7 +20,7 @@ def bisectionUniVariable(f, a, b, N, precision):
         print(f"Bad input, f({a})f({b}) > 0.")
         
     elif np.absolute(np.linalg.norm(prod)) < precision:
-        if np.absolute(no.linalg.norm(f_a)) < precision:
+        if np.absolute(np.linalg.norm(f_a)) < precision:
             print(f"Input was a zero, {a}")
         else:
             print(f"Input was a zero, {b}")
@@ -42,6 +48,12 @@ def bisectionUniVariable(f, a, b, N, precision):
 
 
 # Bisection method for functions f: R^n -> R
+# params: 
+# f: function
+# a: initial guess 1
+# b: initial guess 2
+# N: max iterations
+# precision: precision of solution
 def bisectionMultiVariable(f, a, b, N, precision):
     f_a = f(*a)
     f_b = f(*b)
@@ -78,6 +90,12 @@ def bisectionMultiVariable(f, a, b, N, precision):
         print(f"No root was found after {i} iterations")
 
 #Newtons method for functions f: R -> R
+# params: 
+# f: function
+# f_prime: derivative of function
+# x_0: initial guess
+# N: max iterations
+# precision: precision of solution
 def newtonsUniVariable(f, f_prime, x_0, N, precision):
     if np.absolute(np.linalg.norm(f(x_0))) < precision:
         print(f"Given input was a zero {f(x_0)}")
@@ -99,6 +117,12 @@ def newtonsUniVariable(f, f_prime, x_0, N, precision):
     print(f"No root was found after {i} iterations")
 
 #Newtons method for functions f: R^n -> R
+# params: 
+# f: function
+# f_prime: derivative of function
+# x_0: initial guess
+# N: max iterations
+# precision: precision of solution
 def newtonsMultiVariable(f, f_prime, x_0, N, precision):
     if np.absolute(np.linalg.norm(f(*x_0))) < precision:
         print(f"Given input was a zero {f(*x_0)}")
@@ -123,6 +147,11 @@ def newtonsMultiVariable(f, f_prime, x_0, N, precision):
     print(f"No root was found after {i} iterations")
 
 #Fixed point method for functions f: R -> R
+# params: 
+# f: function
+# x_0: initial guess
+# N: max iterations
+# precision: precision of solution
 def fixedPointUniVariable(f, x_0, N, precision):
     g = lambda x: f(x) + x
     new_x = x_0
@@ -171,7 +200,6 @@ if __name__ == '__main__':
 
     #functions to test
     funcList = []       # holds the functions
-    dfuncList = []      # holds the derivatives, if it exists
 
     #when creating functions, please declare the function, the derivative/gradient, name, if it is multi, and create a tuple from the information
 
