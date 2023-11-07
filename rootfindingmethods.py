@@ -256,7 +256,7 @@ if __name__ == '__main__':
         else:
             # run bisection method
             startTimeNewtons = time.time()
-            bisectionUniVariable(f, initGuess*(-1), initGuess*4, maxIterations, precision)
+            bisectionUniVariable(f, initGuess*(-1), initGuess*5, maxIterations, precision)
             endTimeNewtons = time.time()
             print(f"Bisection's took {endTimeNewtons - startTimeNewtons}s \n")
 
